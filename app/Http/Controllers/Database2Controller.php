@@ -11,4 +11,12 @@ class Database2Controller extends Controller
         $members = Database2Repository::getAll();
         return view('allmms', ['members' => $members]);
     }
+
+
+    public static function findMemberlikeId(Request $request){
+        if($request->has('item')){
+            return  response()->json(Database2Repository::findMemberBylikeId($request->input('item')));
+        }
+    }
+
 }

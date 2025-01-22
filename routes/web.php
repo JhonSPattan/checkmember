@@ -19,6 +19,18 @@ Route::get('/', function () {
 });
 
 
-Route::get('/mem',[Database2Controller::class,'getAllMembers']);
-Route::get('/checkin',[MemberinputController::class,'memberCheckin']);
+Route::get('/mem',[Database2Controller::class,'getAllMembers'])->name('allmem');
+// Route::get('/checkin',[MemberinputController::class,'memberCheckin']);
+
+
+
+
+// Search auto complete
+Route::get('/api/memsearch',[Database2Controller::class,'findMemberlikeId'])->name('apimemsearch');
+
+//render view for submit
+Route::get('/memsearchcheckin',[MemberinputController::class,'memberSearchCheckin']);
+
+
+// for checkin
 Route::post('/checkinpost',[MemberinputController::class,'memberSaveCheckin']);

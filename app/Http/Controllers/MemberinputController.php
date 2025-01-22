@@ -25,7 +25,11 @@ class MemberinputController extends Controller{
         }else{
             $result = $result." เป็นสมาชิก";
         }
-        return redirect('/checkin')->with('result',$result);
+        return redirect('/memsearchcheckin')->with('result',$result);
 
+    }
+
+    public static function memberSearchCheckin(){
+        return view('allmems2');
     }
 }

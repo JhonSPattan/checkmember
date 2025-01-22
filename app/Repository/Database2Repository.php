@@ -16,4 +16,10 @@ class Database2Repository
         }
         return $memdata->staff_code;
     }
+
+
+    public static function findMemberBylikeId($staff_code){
+        $staff_codelist = database2::where("staff_code","like","%".$staff_code."%")->get();
+        return $staff_codelist;
+    }
 }
